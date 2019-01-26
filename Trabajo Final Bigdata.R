@@ -12,14 +12,14 @@ PaginaLaCuarta<-"https://www.lacuarta.com/canal/deportes/"
     WebpageLaCuarta<-html_nodes(WebpageLaCuarta,'.tag-cat')
   #Traspaso de la informacion a texto  
     TextoLaCuarta<-html_text(WebpageLaCuarta)
-print(texto) 
+print(TextoLaCuarta) 
 
 # Contando palabras
 unlistTextoLaCuarta <- unlist(TextoLaCuarta)
 tablaTextoLaCuarta <- table(unlistTextoLaCuarta)
 
 # Transformando a data framtabla
-contaLaCuarta <- as.data.frame(tablaTextoLaCuarta)
+TablaLaCuarta <- as.data.frame(tablaTextoLaCuarta)
 
 #Recorriendo la lista con funcion for
 for(elementosdelalista in unlistTextoLaCuarta){
@@ -30,8 +30,12 @@ for(elementosdelalista in unlistTextoLaCuarta){
 barplot(table(unlistTextoLaCuarta))
 
 
+write.csv(TablaLaCuarta,file="TablaLaCuarta.csv")
 
 
 
-#para graficar
-library('ggplot2')
+
+
+
+
+  
